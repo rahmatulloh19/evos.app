@@ -8,13 +8,12 @@ const itemFragment = document.createDocumentFragment();
 const users = JSON.parse(localStorage.getItem("users"));
 const userId = JSON.parse(localStorage.getItem("user_id"));
 
-const orderingUser = users.find(item => item.id == userId);
-
 // checking the user exiting
 if(!userId) {
   window.location.href = "./login.html"
 }
 
+const orderingUser = users.find(item => item.id == userId);
 
 function renderOrder(arr, list) {
   list.innerHTML = "";
