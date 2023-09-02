@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/normalize.min.css">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <title>Login || EVOS</title>
+</head>
+<body>
+  
+
+  <div class="conatiner">
+    <form class="login-form form-style shadow m-auto d-flex flex-column gap-3 p-4 rounded-3 w-50" id="login-form">
+      <h1 class="register-title d-flex justify-content-between align-items-center mb-0 fw-bold">Kirish</h1>
+      <input class="login-input form-control" type="text" placeholder="Foydalanuvchi nomini yokida telefon raqamingizni kiriting" minlength="2" maxlength="40" required>
+      <input class="login-password form-control" type="password" placeholder="Parolingizni kiriting" minlength="8" maxlength="20" required>
+      <div class="login-inner d-flex justify-content-between">
+        <a class="login-link fw-semibold text-end text-decoration-none d-inline-block btn btn-success" href="./register.html">Ro'yxatdan o'tish</a>
+        <button class="btn btn-primary w-50" form="login-form">Kirish</button>
+      </div>
+      <a class="login-link fw-semibold text-end text-decoration-none d-inline-block ms-auto btn btn-warning text-white" href="./changePassword.html">Parolni unitdingizmi?</a>
+    </form>
+  </div>
+
+
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/login.js"></script>
+</body>
+</html>

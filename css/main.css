@@ -1,0 +1,128 @@
+/* Font families */
+
+@font-face {
+  font-family: "Mulish";
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/mulish-v12-latin-regular.woff2") format("woff2"),
+  url("../fonts/mulish-v12-latin-regular.woff") format("woff");
+  
+}
+@font-face {
+  font-family: "Mulish";
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/mulish-v12-latin-600.woff2") format("woff2"),
+  url("../fonts/mulish-v12-latin-600.woff") format("woff");
+  
+}
+@font-face {
+  font-family: "Mulish";
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/mulish-v12-latin-700.woff2") format("woff2"),
+  url("../fonts/mulish-v12-latin-700.woff") format("woff");
+  
+}
+
+/* Mobile first */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-family: "Mulish", "Arial", sans-serif;
+}
+
+img {
+  display: block;
+  height: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+::selection {
+  color: #fff;
+  background-color: #00af00;
+}
+
+/* Sitcky footer */
+
+.site-main {
+  flex-grow: 1;
+}
+
+.form-style  {
+  margin-top: 150px !important;
+}
+
+.register-title::after {
+  display: block;
+  width: 100px;
+  height: 30px;
+  background-image: url("../images/evos.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  content: "";
+}
+
+.change-inner  {
+  --bs-gutter-x: 0;
+}
+
+.main-text {
+  font-weight: 700;
+  font-size: 40px;
+  /* letter-spacing: 7px; */
+  color: #00af00;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px 15px;
+}
+
+.list-item {
+  border: 1px solid #999;
+}
+
+
+.desc-wrapper {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  line-height: 135%;        /* fallback */
+  max-height: calc(135% * 3);
+}
+
+.wrapper {
+  max-width: 1600px;
+  margin: 0 auto;
+}
