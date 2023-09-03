@@ -22,7 +22,7 @@ elRegisterForm.addEventListener("submit", evt => {
   }
   // bizda raqamimiz +998 dan boshlanmasa birinchi shartimiz true bo'ladide ifni ichidegi shart ishlab ketib qaytarvoradi 
   if(!elNumberValue.startsWith("+998") || elNumberValue.length != 13) {
-    alert("Iltimos, raqamingizni to'g'ri kiriting. \nRaqamingiz +998 dan boshlanishi va raqamingiz uzunligi 13 taga teng bo'lishi kerak (+ bilan birga");
+    alert("Iltimos, raqamingizni to'g'ri kiriting. \nRaqamingiz +998 dan boshlanishi va raqamingiz uzunligi 13 taga teng bo'lishi kerak (+ bilan birga)");
     return;
   }
 
@@ -35,8 +35,9 @@ elRegisterForm.addEventListener("submit", evt => {
   const date = new Date();
   
   // on converting from number to string string type is cut the zero
-  const day = date.getDay().toString().padStart(2, 0);
-  const month = date.getMonth().toString().padStart(2, 0);
+  const day = date.getDate().toString().padStart(2, 0);
+  let month = date.getMonth() + 1;
+  month = month.toString().padStart(2, 0);
   const year = date.getFullYear().toString().slice(2, 4);
   const hour = date.getHours().toString().padStart(2, 0);
   const minute = date.getMinutes().toString().padStart(2, 0);

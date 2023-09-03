@@ -70,11 +70,6 @@ img {
   background-color: #00af00;
 }
 
-/* Sitcky footer */
-
-.site-main {
-  flex-grow: 1;
-}
 
 .form-style  {
   margin-top: 150px !important;
@@ -117,12 +112,57 @@ img {
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3; /* number of lines to show */
-  line-height: 135%;        /* fallback */
+  -webkit-line-clamp: 3;
+  line-height: 135%;
   max-height: calc(135% * 3);
 }
 
 .wrapper {
   max-width: 1600px;
   margin: 0 auto;
+}
+
+.users-item-inner {
+  font-size: 14px;
+}
+.users-item {
+  display: grid;
+  grid-template-columns: 1fr 40px;
+  column-gap: 10px;
+  transition: transform 0.3s linear;
+}
+.users-item-event {
+  transform: scale(1.04) translateX(8px);
+}
+.users {
+  width: 30%;
+  background-color: #fff;
+}
+
+.user-orders {
+  width: 70%;
+}
+
+.users-title-wrapper {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 135%;
+  height: calc(135% * 2);
+}
+
+.order-item {
+  display: grid;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  column-gap: 15px;
+  grid-template-columns: 1fr 40px 100px 100px;
+}
+.cash {
+  font-weight: 600;
+  letter-spacing: 2px;
 }

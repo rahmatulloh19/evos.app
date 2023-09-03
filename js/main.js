@@ -2,6 +2,7 @@ const ordersCount = document.querySelector(".orders-count");
 const elList = document.querySelector(".list");
 const modalList = document.querySelector(".modal-list");
 const modalTotal = document.querySelector(".modal-total");
+const modalBtn = document.querySelector(".btn-submit");
 
 const itemFragment = document.createDocumentFragment();
 
@@ -55,7 +56,7 @@ function renderOrder(arr, list) {
     })
     modalTotal.textContent = `${cash} so'm`
   }
-
+  
   // for badge
   if(orderingUser.user_orders.length) {
     ordersCount.textContent = orderingUser.user_orders.length;
@@ -74,13 +75,26 @@ elList.addEventListener("click", evt => {
     const btnId = evt.target.dataset.id;
     const addCart = product.find(item => item.id == btnId);
     
+    // get user's regestreted time
+    const date = new Date();
+    
+    // on converting from number to string string type is cut the zero
+    const day = date.getDate().toString().padStart(2, 0);
+    let month = date.getMonth() + 1;
+    month = month.toString().padStart(2, 0);
+    const year = date.getFullYear().toString().slice(2, 4);
+    const hour = date.getHours().toString().padStart(2, 0);
+    const minute = date.getMinutes().toString().padStart(2, 0);
+    const second = date.getSeconds().toString().padStart(2, 0);
+
+    addCart.ordered_time = `${day}-${month}-${year} ${hour}:${minute}:${second}`;
+    
     // we checking the order from don't add second same order
     const checkOrder = orderingUser.user_orders.find(item => item.id == addCart.id);
     
     if(!checkOrder) {
       orderingUser.user_orders.push(addCart);
       renderOrder(orderingUser.user_orders, modalList)
-      
     }
     else {
       alert("Buyurtmalar ro'yxatiga qo'shilgan");
@@ -98,22 +112,22 @@ modalList.addEventListener("click", evt => {
     localStorage.setItem("users", JSON.stringify(users));
     renderOrder(orderingUser.user_orders, modalList)
   }
-
+  
   if(evt.target.matches(".btn-adder")) {
     const btnId = evt.target.dataset.id;
     const addingProduct = orderingUser.user_orders.find(item => item.id == btnId);
-
+    
     addingProduct.product_count++;
     addingProduct.total = addingProduct.product_count * addingProduct.product_price
-
+    
     localStorage.setItem("users", JSON.stringify(users));
     renderOrder(orderingUser.user_orders, modalList)
   }
-
+  
   if(evt.target.matches(".btn-subtracter")) {
     const btnId = evt.target.dataset.id;
     const subtractingProduct = orderingUser.user_orders.find(item => item.id == btnId);
-
+    
     if(subtractingProduct.product_count > 1) {
       subtractingProduct.product_count--;
       subtractingProduct.total = subtractingProduct.product_count * subtractingProduct.product_price
@@ -121,4 +135,8 @@ modalList.addEventListener("click", evt => {
     localStorage.setItem("users", JSON.stringify(users));
     renderOrder(orderingUser.user_orders, modalList)
   }
+})
+
+modalBtn.addEventListener("click", () => {
+  alert("Buyurtmangiz qabul qilindi✅")
 })

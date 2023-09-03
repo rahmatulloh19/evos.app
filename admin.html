@@ -10,12 +10,41 @@
 </head>
 <body>
   
-  <div class="wrapper d-flex w-100 h-100">
-    <div class="users w-25 h-100 shadow">
-      
+  <div class="wrapper d-flex w-100 h-100 column-gap-3">
+    <div class="users h-100 bg-white">
+      <button class="users-btn w-100 fs-5 btn p-3 btn-success">Buyurtmalar</button>
+      <ul class="users-list d-flex flex-column bg-primary-subtle m-0 bg-white list-unstyled mt-3 row-gap-3"></ul>
+    </div>
+    <div class="user-orders order pe-3">
+      <div class="d-flex justify-content-end">
+        <div class="p-0">
+          <button class="order-btn btn btn-danger p-3 fs-5" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Ro'yxatdan o'tganlar</button>
+        </div>
+      </div>
+      <div class="order-content d-flex justify-content-between w-100 mt-3 fs-5 fw-semibold shadow rounded-2"></div>
+      <ul class="order-list d-flex flex-column row-gap-3 my-3 list-unstyled"></ul>
     </div>
   </div>
-
+  
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ro'yxatdan o'tganlar foydalanuvchilar</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="modal-admin-list d-flex flex-column row-gap-4 list-unstyled"></ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Yopish</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   <script src="./js/bootstrap.min.js"></script>
   <script src="./js/admin.js"></script>
 </body>
