@@ -81,6 +81,7 @@ function renderAdminOrders(userId) {
         totalItem.innerHTML = `
         <strong class="fs-5">Total</strong> 
         <span class="cash text-warning">${cash} so'm</span>
+        <button class="btn-done btn btn-success" data-id="${item.id}">Done</button>
         `
         if(fragmentItems.childElementCount) {
           fragmentItems.appendChild(totalItem);
@@ -107,11 +108,16 @@ elAdminOrderList.addEventListener("click", evt => {
   const targetId = evt.target.dataset.id;
   const productId = evt.target.dataset.product;
   if(evt.target.matches(".admin-btn")) {
-    const doneUser = orderedUsers.find(item => {
-      return item.id == targetId
-    })
+    const doneUser = orderedUsers.find(item => item.id == targetId);
     const doneProduct = doneUser.user_orders.findIndex(item => item.id == productId);
     doneUser.user_orders.splice(doneProduct, 1);
+  }
+  if(evt.target.matches(".btn-done")) {
+    const doneUser = orderedUsers.find(item => item.id == targetId);
+    doneUser.user_orders = []
+    localStorage.setItem("users", JSON.stringify(users))
+    elAdminOrderList.textContent = "";
+    elAdminData.textContent = "";
   }
   renderAdminOrders(targetId)
   renderAdmin(orderedUsers, elAdminList)
