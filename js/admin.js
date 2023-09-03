@@ -80,8 +80,10 @@ function renderAdminOrders(userId) {
         totalItem.classList.add("d-flex", "justify-content-between", "p-3", "border", "border-2", "rounded-2");
         totalItem.innerHTML = `
         <strong class="fs-5">Total</strong> 
+        <div class="d-inline-block">
         <span class="cash text-warning">${cash} so'm</span>
-        <button class="btn-done btn btn-success" data-id="${item.id}">Done</button>
+        <button class="btn-done btn btn-success ms-2" data-id="${item.id}">Done</button>
+        </div>
         `
         if(fragmentItems.childElementCount) {
           fragmentItems.appendChild(totalItem);
