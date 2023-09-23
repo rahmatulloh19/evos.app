@@ -3,6 +3,7 @@ const elList = document.querySelector(".list");
 const modalList = document.querySelector(".modal-list");
 const modalTotal = document.querySelector(".modal-total");
 const modalBtn = document.querySelector(".btn-submit");
+const logOutBtn = document.querySelector(".logout-btn");
 
 const itemFragment = document.createDocumentFragment();
 
@@ -68,7 +69,7 @@ function renderOrder(arr, list) {
 }
 
 renderOrder(product, elList);
-renderOrder(orderingUser.user_orders, modalList)
+renderOrder(orderingUser.user_orders, modalList);
 
 elList.addEventListener("click", evt => {
   if(evt.target.matches(".order-btn")) {
@@ -139,4 +140,9 @@ modalList.addEventListener("click", evt => {
 
 modalBtn.addEventListener("click", () => {
   alert("Buyurtmangiz qabul qilindi✅")
+})
+
+logOutBtn.addEventListener("click", () => {
+  localStorage.removeItem("user_id");
+  window.location.href = "./login.html"
 })

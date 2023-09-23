@@ -131,8 +131,8 @@ const elAdminUsersBtn = elAdminUsers.querySelector(".users-btn");
 
 elAdminUsersBtn.addEventListener("click", () => {
   if(elAdminUsers.classList.contains("bg-white")) {
-    renderAdmin(orderedUsers, elAdminList)
-    elAdminUsers.classList.remove("bg-white")
+    renderAdmin(orderedUsers, elAdminList);
+    elAdminUsers.classList.remove("bg-white");
     elAdminUsers.classList.add("bg-primary-subtle");
     if(!orderedUsers.length) {
       const errorMessage = document.createElement("h3");
@@ -143,6 +143,8 @@ elAdminUsersBtn.addEventListener("click", () => {
   } else if(elAdminUsers.classList.contains("bg-primary-subtle")) {
     elAdminUsers.classList.remove("bg-primary-subtle")
     elAdminUsers.classList.add("bg-white");
-    elAdminList.innerHTML = ""
+    elAdminList.innerHTML = "";
+    elAdminData.innerHTML = ""
+    elAdminOrderList.innerHTML = "";
   }
 })
